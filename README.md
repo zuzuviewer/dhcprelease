@@ -1,2 +1,2 @@
 # dhcprelease
-opendhcp release ip address
+release any ip address offered by dhcp server
