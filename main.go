@@ -31,9 +31,7 @@ func parseIP(ip string) []byte {
 		if err != nil {
 			log.Panicf("parse ip %s ,v %s,failed,err %v\n", ip,v, err)
 		}
-		b := make([]byte, 1)
-		b[0] = byte(value)
-		ret = append(ret, b...)
+		ret = append(ret, byte(value))
 	}
 	return ret
 }
