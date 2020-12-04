@@ -56,6 +56,7 @@ func main() {
 	zeroIP := parseIP("0.0.0.0")
 	releaseOrder := append(front, append(clientIP, append(zeroIP, append(zeroIP, zeroIP...)...)...)...)
 	releaseOrder = append(releaseOrder, clientMAC...)
+	log.Printf("len %d\n",len(releaseOrder))
 	macAddressPadding, err := hex.DecodeString("00000000000000000000")
 	if err != nil {
 		log.Panicf("parse mac address padding failed,err %v\n", err)
@@ -102,7 +103,7 @@ func main() {
 	if err != nil {
 		log.Panicf("resovle udp address failed,err %v'\n", err)
 	}
-	log.Printf("dhcp server %s\n", raddr.String())
+	log.Printf("dhcp server %s\n,data len %d\n", raddr.String(),len(releaseOrder))
 	conn, err := net.DialUDP("udp", nil, raddr)
 	if err != nil {
 		log.Panicf("dial udp failed,err %v\n", err)
